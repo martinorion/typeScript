@@ -1,0 +1,4 @@
+function checkEnding(m:string,n:string) {
+  return m.endsWith(n);
+}
+console.log(checkEnding("matko","tko"));
