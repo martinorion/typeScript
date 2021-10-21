@@ -1,0 +1,62 @@
+public class Warriors {
+    String name;
+    int life;
+    int speed;
+    int muscle;
+    Item items;
+
+    public Warriors(String name, int life, int speed, int muscle, Item items) {
+        this.name = name;
+        this.life = life;
+        this.speed = speed;
+        this.muscle = muscle;
+        this.items = items;
+    }
+
+    public static class Item {
+        String name;
+        int value;
+
+        @Override
+        public String toString() {
+            return  name +
+                    " " + value
+                    ;
+        }
+
+        public Item(String name, int value){
+            this.name = name;
+            this.value = value;
+        }
+    }
+
+    @Override
+    public String toString() {
+        return name + " " + life +
+                " " + speed +
+                " " + muscle +
+                " " + items
+                ;
+    }
+     public int force(){
+     return life + speed + muscle;
+     }
+
+     public static int battle(Warriors warriors1, Warriors warriors2){
+        if(warriors1.force() > warriors2.force()){
+            return warriors2.life-1;
+        }
+        return warriors1.life-1;
+     }
+
+    public static void main(String[] args) {
+      Item a = new Item("Broke a neck", 12);
+      Item b = new Item("Horse", 13);
+      Warriors x = new Warriors("Sumino", 10, 4, 7, a);
+      Warriors y = new Warriors("Kubinko",9,5,3, b);
+      System.out.println(x);
+        System.out.println(y);
+        System.out.println(battle(x,y));
+        System.out.println(y);
+    }
+}
